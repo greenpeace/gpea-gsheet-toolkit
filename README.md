@@ -26,7 +26,7 @@ By using this feature,
 
 * Now the endpoint support SELECT and INSERT features. 
 
-### Setup guide
+### Server Setup guide
 
 1. Prepare a schema data extension and share to the service account. Please refer to [GPEA GSheet Toolkit Schemas](https://docs.google.com/spreadsheets/d/1yfIoKAJsz99fFMsfYznLXvjGRoZ20LaZ_Khz_ov4aHM/edit#gid=0).
 
@@ -59,3 +59,35 @@ npm install
 npm dev
 
 ```
+
+### How to setup a new sheet as DB/API?
+
+1. Browse to your schema sheet. If you are in GPEA, please use [GPEA GSheet Toolkit Schemas](https://docs.google.com/spreadsheets/d/1yfIoKAJsz99fFMsfYznLXvjGRoZ20LaZ_Khz_ov4aHM/edit#gid=0) 
+
+2. In the sheet `GSHEET_AS_API`
+
+3. Create one new row with following settings
+
+   1. **apiName**: The public api name. This system uses this name to generate the API links. 
+
+   2. **spreadsheetId**: The spreadsheet of the target google sheet. You can find the id in the URL.
+
+   3. **sheetName**: The sheet name of the target google sheet tab. 
+
+   4. **status**: Enable or disable. Use this value to switch on/off APIs.
+
+   5. **read / write: Parameters when you read the data. The value should be in a valid JSON format. 
+
+      * Please fillin the default value: `{"enable": true}`. You can open expose the read or write API. Or Both.
+
+      * If you want to limit the field read/write access, use this setting
+
+        ```
+        {
+          ""enable"": true,
+          ""fields"": [""id"", ""first_name"", ""last_name"", ""gender""] # The fields which will readable/writable
+        }
+        ```
+
+        
+

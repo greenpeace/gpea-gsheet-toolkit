@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    restart: always
+    build: .
+    ports:
+      - "41095:3000"
+
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=./secrets/gpea-syncer@gpea-engage.iam.gserviceaccount.com.json
+      - GSHEET_TOOLKIT_SCHEMA_SPREADSHEET_ID=1yfIoKAJsz99fFMsfYznLXvjGRoZ20LaZ_Khz_ov4aHM
