@@ -3,8 +3,6 @@ const router = express.Router();
 const GSheet = require('../models/GSheet')
 const _ = require("lodash")
 
-const SHEET_ID = '1ruapB4ClTi23VM3s6eNPCMH_xkUKGMW3nPTDcCTn1xM'
-
 router.get('/', (req, res, next) => {
   res.json({
     status: "OK",
@@ -62,7 +60,7 @@ router.get('/:apiName', async (req, res, next) => {
   }
 
   // fetch all rows and parse locally
-  let rows = await gsheet.fetchAllRows(SHEET_ID, 'MOCK_DATA')
+  let rows = await gsheet.fetchAllRows(spreadsheetId, sheetName)
 
   // filter 
   if (req.query.q && rows.length>0) {
