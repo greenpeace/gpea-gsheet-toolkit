@@ -96,6 +96,7 @@ router.get('/:apiName', async (req, res, next) => {
   // limit & offset
   res.set('X-Total-Count', rows.length);
 
+  let totalCount = rows.length
   let limit = parseInt(req.query.limit, 10) || 100
   let offset = parseInt(req.query.offset, 10) || 0
   if (limit>100) { limit=100 }
@@ -111,6 +112,7 @@ router.get('/:apiName', async (req, res, next) => {
     records: rows,
     limit,
     offset, 
+    totalCount
   })
 });
 
