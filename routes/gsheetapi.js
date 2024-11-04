@@ -99,7 +99,7 @@ router.get('/:apiName', async (req, res, next) => {
   let totalCount = rows.length
   let limit = parseInt(req.query.limit, 10) || 100
   let offset = parseInt(req.query.offset, 10) || 0
-  if (limit>100) { limit=100 }
+  if (limit>1000) { limit=1000 }
   rows = rows.slice(offset, offset+limit)
 
   // trim fields based on schema settings
